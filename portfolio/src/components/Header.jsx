@@ -9,7 +9,7 @@ const Header = () => {
     <>
       <div>
         <header
-          className="shadow-sm bg-white/10 border-b border-dotted border-gray-700 backdrop-blur-lg shadow-black"
+          className="shadow-sm bg-white/10 border-b border-dotted border-gray-700 backdrop-blur-lg shadow-black fixed top-0 left-0 right-0 z-50"
           style={{ background: "rgba(18, 18, 18, 0.3)" }}
         >
           <div className="max-w-full px-4 md:py-2 sm:px-6 lg:px-8">
