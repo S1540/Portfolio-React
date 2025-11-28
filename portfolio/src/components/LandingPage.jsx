@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Twitter, Briefcase, Eye } from "lucide-react";
-import ParticlesBackground from "./ParticlesBackground";
 import SimpleBubbles from "./SimpleBubbles";
 
 const TypewriterEffect = ({ words, className }) => {

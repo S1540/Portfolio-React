@@ -1,13 +1,14 @@
 import React from "react";
 import { Code, Layers, Sparkles, Zap, Target, TrendingUp } from "lucide-react";
-
+import HTML5 from "../../assets/HTML5.png";
 import LandingPage from "../LandingPage";
+import SkillGauge from "../Cards/SkillGauge";
 
 const HomePage = () => {
   return (
     <>
       <LandingPage />
-      <section className="min-h-screen bg-[#020718] relative py-20 overflow-hidden">
+      <section className="min-h-screen bg-[#020718] relative py-14 overflow-hidden">
         {/* Grid Pattern Background */}
         <div
           className="absolute inset-0 opacity-30"
@@ -26,8 +27,8 @@ const HomePage = () => {
 
         {/* linear Overlays */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
         </div>
 
         {/* About Content */}
@@ -205,6 +206,25 @@ const HomePage = () => {
               </div>
             ))}
           </div>
+        </div>
+        {/* Skills Section */}
+        <div className="pt-20">
+          <div className="text-center mb-16 sm:mb-20 animate-fadeIn">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+              <span className="text-gray-400 text-sm sm:text-base font-medium uppercase tracking-wider">
+                Explore My Skillset
+              </span>
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Technical Skills
+              </span>
+            </h2>
+          </div>
+          {/* Skills Circles */}
+          <SkillGauge label="HTML" value={90} color="#E34F26" />
         </div>
       </section>
     </>
