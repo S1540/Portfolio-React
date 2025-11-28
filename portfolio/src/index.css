@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+.text-heading {
+  font-family: Merienda;
+  font-weight: 700;
+  font-style: normal;
+}
+.main-heading {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: normal;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
