@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Twitter, Briefcase, Eye } from "lucide-react";
 import ParticlesBackground from "./ParticlesBackground";
+import SimpleBubbles from "./SimpleBubbles";
 
 const TypewriterEffect = ({ words, className }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -79,7 +80,8 @@ const LandingPage = () => {
     <div className="min-h-screen bg-[#020718] relative overflow-hidden flex items-center justify-center">
       {/* Particles Background - Blurred */}
       <div className="absolute inset-0 blur-sm" style={{ zIndex: 1 }}>
-        <ParticlesBackground />
+        {/* <ParticlesBackground /> */}
+        <SimpleBubbles />
       </div>
 
       {/* Grid Pattern Background */}
@@ -88,18 +90,18 @@ const LandingPage = () => {
         style={{
           zIndex: 2,
           backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            linear-linear(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-linear(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
           `,
           backgroundSize: "50px 50px",
           maskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+            "radial-linear(ellipse at center, black 40%, transparent 80%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+            "radial-linear(ellipse at center, black 40%, transparent 80%)",
         }}
       ></div>
 
-      {/* Gradient Overlays */}
+      {/* linear Overlays */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 3 }}
@@ -111,18 +113,18 @@ const LandingPage = () => {
       {/* Decorative Elements - Left Side */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-8 pl-8">
-          <div className="w-1 h-16 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50"></div>
-          <div className="w-1 h-24 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50"></div>
-          <div className="w-1 h-20 bg-gradient-to-b from-transparent via-cyan-500 to-transparent opacity-50"></div>
+          <div className="w-1 h-16 bg-linear-to-b from-transparent via-blue-500 to-transparent opacity-50"></div>
+          <div className="w-1 h-24 bg-linear-to-b from-transparent via-purple-500 to-transparent opacity-50"></div>
+          <div className="w-1 h-20 bg-linear-to-b from-transparent via-cyan-500 to-transparent opacity-50"></div>
         </div>
       </div>
 
       {/* Decorative Elements - Right Side */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-8 pr-8">
-          <div className="w-1 h-20 bg-gradient-to-b from-transparent via-cyan-500 to-transparent opacity-50"></div>
-          <div className="w-1 h-24 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50"></div>
-          <div className="w-1 h-16 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50"></div>
+          <div className="w-1 h-20 bg-linear-to-b from-transparent via-cyan-500 to-transparent opacity-50"></div>
+          <div className="w-1 h-24 bg-linear-to-b from-transparent via-purple-500 to-transparent opacity-50"></div>
+          <div className="w-1 h-16 bg-linear-to-b from-transparent via-blue-500 to-transparent opacity-50"></div>
         </div>
       </div>
 
@@ -183,7 +185,7 @@ const LandingPage = () => {
           <div className="mb-8 sm:mb-10 animate-fadeIn">
             <div className="relative group">
               {/* Outer Glow Ring */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-xl opacity-40 group-hover:opacity-60 animate-pulse transition-opacity duration-500"></div>
+              <div className="absolute -inset-2 bg-linear-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-xl opacity-40 group-hover:opacity-60 animate-pulse transition-opacity duration-500"></div>
 
               {/* Image Container */}
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl shadow-cyan-500/30 group-hover:scale-105 group-hover:border-cyan-400/70 transition-all duration-500">
@@ -192,7 +194,7 @@ const LandingPage = () => {
                   alt="Shubham Singh"
                   className="w-full h-full object-cover bg-slate-800"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-cyan-500/20 to-transparent"></div>
               </div>
 
               {/* Decorative Rings */}
@@ -205,13 +207,13 @@ const LandingPage = () => {
 
           {/* Name */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-fadeIn delay-100">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Mr. Shubham Singh
             </span>
           </h1>
 
           {/* Typewriter Role */}
-          <div className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 min-h-[3rem] sm:min-h-[4rem] animate-fadeIn delay-200">
+          <div className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 min-h-12 sm:min-h-16 animate-fadeIn delay-200">
             <TypewriterEffect
               words={roles}
               className="inline-flex items-center gap-1"
@@ -226,12 +228,12 @@ const LandingPage = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-14 animate-fadeIn delay-400 w-full sm:w-auto px-4 sm:px-0">
-            <button className="group relative px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-base sm:text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/40 hover:shadow-blue-600/60 transition-all duration-300 transform hover:scale-105 overflow-hidden">
+            <button className="group relative px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-base sm:text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/40 hover:shadow-blue-600/60 transition-all duration-300 transform hover:scale-105 overflow-hidden">
               <span className="relative z-10 flex items-center justify-center gap-2">
                 <Eye className="w-5 h-5" />
                 Explore Work
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-blue-400 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
             <button className="group px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 bg-transparent border-2 border-purple-500 hover:bg-purple-500/10 text-purple-400 hover:text-purple-300 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 hover:border-purple-400">

@@ -91,7 +91,7 @@ const ParticlesBackground = () => {
           value: { min: 2, max: 8 },
           animation: {
             enable: true,
-            speed: 4,
+            speed: 2,
             startValue: "min",
             destroy: "max",
             sync: false,

@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 .text-heading {
   font-family: Merienda;
   font-weight: 700;
