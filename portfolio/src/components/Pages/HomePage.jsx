@@ -17,6 +17,7 @@ import LandingPage from "../LandingPage";
 import SkillGauge from "../Cards/SkillGauge";
 import AnimatedCounter from "../Cards/AnimatedCounter";
 import ServiceCard from "../Cards/ServiceCard";
+import { ProjectUI } from "../Cards/ProjectUI";
 
 const HomePage = () => {
   return (
@@ -314,7 +315,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* My Services */}
-      <section className="min-h-screen bg-[#020718] relative py-14 overflow-hidden">
+      <section className="h-auto bg-[#020718] relative py-14 overflow-hidden">
         <div className="px-4">
           <div className="text-center mb-16  animate-fadeIn">
             <div className="flex items-center justify-center gap-2 mb-4">
@@ -366,6 +367,26 @@ const HomePage = () => {
               />
             ))}
           </div>
+        </div>
+      </section>
+      {/* Project ShowCase */}
+      <section className="min-h-screen bg-[#020718] relative py-14 overflow-hidden text-white">
+        <div className="text-center mb-16  animate-fadeIn">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+            <span className="text-gray-400 text-sm sm:text-base font-medium uppercase tracking-wider">
+              Explore Project
+            </span>
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+            <span className="bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Project Showcase
+            </span>
+          </h2>
+        </div>
+        <div className="max-w-7xl w-full mx-auto bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 p-8 rounded-lg hover:bg-slate-800/60 ">
+          <ProjectUI />
         </div>
       </section>
     </>
