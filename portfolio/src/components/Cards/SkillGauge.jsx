@@ -4,6 +4,7 @@ import {
   GaugeReferenceArc,
   useGaugeState,
 } from "@mui/x-charts/Gauge";
+import HTML5 from "../../assets/HTML5.png";
 
 function GaugePointer() {
   const { valueAngle, outerRadius, cx, cy } = useGaugeState();
@@ -17,7 +18,6 @@ function GaugePointer() {
 
   return (
     <g>
-      {/* Center Dot */}
       <circle cx={cx} cy={cy} r={6} fill="red" />
 
       {/* Needle Line */}
@@ -30,7 +30,12 @@ function GaugePointer() {
   );
 }
 
-export default function SkillGauge() {
+export default function SkillGauge({
+  skillValue,
+  skillName,
+  skillIcon,
+  skillColor,
+}) {
   return (
     <div className="max-w-44 w-full">
       <GaugeContainer
@@ -38,7 +43,7 @@ export default function SkillGauge() {
         height={180}
         startAngle={-110}
         endAngle={110}
-        value={80} // Skill%
+        value={skillValue} // Skill%
       >
         {/* Level 1 (Outer Reference Arc) */}
         <GaugeReferenceArc
@@ -50,7 +55,7 @@ export default function SkillGauge() {
         {/* Main Progress Arc */}
         <GaugeValueArc
           style={{
-            fill: "#4ade80", // Green
+            fill: skillColor, // Green
             transition: "all 1s ease",
           }}
         />
@@ -60,7 +65,12 @@ export default function SkillGauge() {
       </GaugeContainer>
 
       {/* NEW LEVEL: LABEL BELOW CENTER */}
-      <p className="text-center text-2xl -mt-10 font-bold text-white">HTML</p>
+      <div className="flex flex-row gap-2 justify-center items-center mt-2">
+        <img src={skillIcon} alt="Image" className="h-10 w-10 -mt-10" />
+        <p className="text-center text-2xl -mt-10 font-bold text-white">
+          {skillName}
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,14 @@
 import React from "react";
 import { Code, Layers, Sparkles, Zap, Target, TrendingUp } from "lucide-react";
 import HTML5 from "../../assets/HTML5.png";
+import CSS from "../../assets/CSS.png";
+import TailwindCSS from "../../assets/Tailwind.png";
+import JavaScript from "../../assets/JavaScript.png";
+import ReactJS from "../../assets/React.png";
+import NodeJS from "../../assets/NodeJS.png";
+import ExpressJS from "../../assets/Express.png";
+import MongoDB from "../../assets/MongoDB.png";
+import GitHub from "../../assets/GitHub.png";
 import LandingPage from "../LandingPage";
 import SkillGauge from "../Cards/SkillGauge";
 
@@ -27,8 +35,8 @@ const HomePage = () => {
 
         {/* linear Overlays */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/5 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         {/* About Content */}
@@ -207,9 +215,16 @@ const HomePage = () => {
             ))}
           </div>
         </div>
+      </section>
+      <section className="min-h-screen bg-[#020718] relative pb-14 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          {/* <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div> */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-ping"></div>
+          <div className="absolute bottom-1/5 right-1/4 w-[420px] h-96 bg-purple-500/20 rounded-full blur-3xl animate-bounce "></div>
+        </div>
         {/* Skills Section */}
-        <div className="pt-20">
-          <div className="text-center mb-16 sm:mb-20 animate-fadeIn">
+        <div className="pt-14">
+          <div className="text-center mb-16  animate-fadeIn">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
               <span className="text-gray-400 text-sm sm:text-base font-medium uppercase tracking-wider">
@@ -224,7 +239,72 @@ const HomePage = () => {
             </h2>
           </div>
           {/* Skills Circles */}
-          <SkillGauge label="HTML" value={90} color="#E34F26" />
+          <div className="max-w-7xl w-full mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-4 sm:px-6 lg:px-8">
+            {[
+              {
+                skillName: "HTML",
+                skillValue: 90,
+                skillColor: "#E34F26",
+                skillIcon: HTML5,
+              },
+              {
+                skillName: "CSS",
+                skillValue: 85,
+                skillColor: "#2965F1",
+                skillIcon: CSS,
+              },
+              {
+                skillName: "Tailwind",
+                skillValue: 80,
+                skillColor: "#38B2AC",
+                skillIcon: TailwindCSS,
+              },
+              {
+                skillName: "JavaScript",
+                skillValue: 75,
+                skillColor: "#F7DF1E",
+                skillIcon: JavaScript,
+              },
+              {
+                skillName: "React",
+                skillValue: 80,
+                skillColor: "#61DAFB",
+                skillIcon: ReactJS,
+              },
+              {
+                skillName: "Node.js",
+                skillValue: 70,
+                skillColor: "#339933",
+                skillIcon: NodeJS,
+              },
+              {
+                skillName: "Express.js",
+                skillValue: 65,
+                skillColor: "#000000",
+                skillIcon: ExpressJS,
+              },
+              {
+                skillName: "MongoDB",
+                skillValue: 60,
+                skillColor: "#47A248",
+                skillIcon: MongoDB,
+              },
+              {
+                skillName: "Git & GitHub",
+                skillValue: 85,
+                skillColor: "#181717",
+                skillIcon: GitHub,
+              },
+            ].map((skill, index) => (
+              <SkillGauge
+                key={index}
+                skillName={skill.skillName}
+                skillIcon={skill.skillIcon}
+                skillValue={skill.skillValue}
+                skillColor={skill.skillColor}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>
