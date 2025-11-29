@@ -9,14 +9,20 @@ import NodeJS from "../../assets/NodeJS.png";
 import ExpressJS from "../../assets/Express.png";
 import MongoDB from "../../assets/MongoDB.png";
 import GitHub from "../../assets/GitHub.png";
+import Programer from "../../assets/Programer.png";
+import CleanCode from "../../assets/CleanCode.png";
+import Responsive from "../../assets/Responsive.png";
+import AI from "../../assets/AI.png";
 import LandingPage from "../LandingPage";
 import SkillGauge from "../Cards/SkillGauge";
+import AnimatedCounter from "../Cards/AnimatedCounter";
+import ServiceCard from "../Cards/ServiceCard";
 
 const HomePage = () => {
   return (
     <>
       <LandingPage />
-      <section className="min-h-screen bg-[#020718] relative py-14 overflow-hidden">
+      <section className="h-auto bg-[#020718] relative py-14 overflow-hidden">
         {/* Grid Pattern Background */}
         <div
           className="absolute inset-0 opacity-30"
@@ -179,22 +185,22 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 sm:mt-16 ">
             {[
               {
-                number: "50+",
+                endValue: 50,
                 label: "Projects Completed",
                 color: "from-blue-400 to-cyan-400",
               },
               {
-                number: "3+",
+                endValue: 2,
                 label: "Years Experience",
                 color: "from-purple-400 to-pink-400",
               },
               {
-                number: "30+",
+                endValue: 30,
                 label: "Happy Clients",
                 color: "from-green-400 to-emerald-400",
               },
               {
-                number: "100%",
+                endValue: 100,
                 label: "Satisfaction Rate",
                 color: "from-orange-400 to-red-400",
               },
@@ -206,7 +212,7 @@ const HomePage = () => {
                 <div
                   className={`text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
                 >
-                  {stat.number}
+                  <AnimatedCounter endValue={stat.endValue} />
                 </div>
                 <div className="text-gray-400 text-xs sm:text-sm">
                   {stat.label}
@@ -216,14 +222,13 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-[#020718] relative pb-14 overflow-hidden">
+      <section className="h-auto bg-[#020718] relative pb-14 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          {/* <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div> */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-ping"></div>
           <div className="absolute bottom-1/5 right-1/4 w-[420px] h-96 bg-purple-500/20 rounded-full blur-3xl animate-bounce "></div>
         </div>
         {/* Skills Section */}
-        <div className="pt-14">
+        <div className="pt-14 px-4">
           <div className="text-center mb-16  animate-fadeIn">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
@@ -239,7 +244,8 @@ const HomePage = () => {
             </h2>
           </div>
           {/* Skills Circles */}
-          <div className="max-w-7xl w-full mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-4 sm:px-6 lg:px-8 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 p-8 rounded-lg hover:bg-slate-800/60">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-purple-500 via-pink-500 to-cyan-500 rounded-t-2xl"></div>
             {[
               {
                 skillName: "HTML",
@@ -290,7 +296,7 @@ const HomePage = () => {
                 skillIcon: MongoDB,
               },
               {
-                skillName: "Git & GitHub",
+                skillName: "GitHub",
                 skillValue: 85,
                 skillColor: "#181717",
                 skillIcon: GitHub,
@@ -302,6 +308,61 @@ const HomePage = () => {
                 skillIcon={skill.skillIcon}
                 skillValue={skill.skillValue}
                 skillColor={skill.skillColor}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* My Services */}
+      <section className="min-h-screen bg-[#020718] relative py-14 overflow-hidden">
+        <div className="px-4">
+          <div className="text-center mb-16  animate-fadeIn">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+              <span className="text-gray-400 text-sm sm:text-base font-medium uppercase tracking-wider">
+                What I Offer
+              </span>
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Service Overview
+              </span>
+            </h2>
+          </div>
+          {/* Services */}
+          <div className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto gap-4">
+            {[
+              {
+                image: Programer,
+                heading: "Web Development",
+                discription:
+                  "Building responsive and modern websites using latest technologies. ",
+              },
+              {
+                image: CleanCode,
+                heading: "Clean Code",
+                discription:
+                  "writing clean and scalable code for real-world projects ",
+              },
+              {
+                image: Responsive,
+                heading: "Responsive Design",
+                discription:
+                  "Creating fully responsive and user-friendly layouts for all screen size. ",
+              },
+              {
+                image: AI,
+                heading: "AI Integration",
+                discription:
+                  "Incorporating AI features to enhance user experience and functionality. ",
+              },
+            ].map((service, index) => (
+              <ServiceCard
+                key={index}
+                image={service.image}
+                heading={service.heading}
+                discription={service.discription}
               />
             ))}
           </div>

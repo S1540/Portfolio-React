@@ -5,6 +5,7 @@ import {
   useGaugeState,
 } from "@mui/x-charts/Gauge";
 import HTML5 from "../../assets/HTML5.png";
+import { useEffect, useRef, useState } from "react";
 
 function GaugePointer() {
   const { valueAngle, outerRadius, cx, cy } = useGaugeState();
@@ -30,20 +31,37 @@ function GaugePointer() {
   );
 }
 
-export default function SkillGauge({
-  skillValue,
-  skillName,
-  skillIcon,
-  skillColor,
-}) {
+const SkillGauge = ({ skillValue, skillName, skillIcon, skillColor }) => {
+  const sectionRef = useRef(null);
+  const [animatedValue, setAnimatedValue] = useState(0);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entery = entries[0];
+      if (entery.isIntersecting) {
+        setAnimatedValue(null);
+        let start = 0;
+        const interval = setInterval(() => {
+          start++;
+          setAnimatedValue(start);
+          if (start === skillValue) clearInterval(interval);
+        });
+      }
+    });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [skillValue]);
+
   return (
-    <div className="max-w-44 w-full">
+    <div
+      ref={sectionRef}
+      className="max-w-44 w-full flex flex-col items-center"
+    >
       <GaugeContainer
-        width={180}
-        height={180}
+        width={150}
+        height={150}
         startAngle={-110}
         endAngle={110}
-        value={skillValue} // Skill%
+        value={animatedValue}
       >
         {/* Level 1 (Outer Reference Arc) */}
         <GaugeReferenceArc
@@ -55,22 +73,23 @@ export default function SkillGauge({
         {/* Main Progress Arc */}
         <GaugeValueArc
           style={{
-            fill: skillColor, // Green
-            transition: "all 1s ease",
+            fill: skillColor,
+            transition: "all 1s ease in",
           }}
         />
-
-        {/* Pointer Needle */}
         <GaugePointer />
       </GaugeContainer>
 
       {/* NEW LEVEL: LABEL BELOW CENTER */}
-      <div className="flex flex-row gap-2 justify-center items-center mt-2">
-        <img src={skillIcon} alt="Image" className="h-10 w-10 -mt-10" />
-        <p className="text-center text-2xl -mt-10 font-bold text-white">
-          {skillName}
-        </p>
+      <div className="flex flex-row gap-2 justify-center items-center -ml-4 -mt-4">
+        <img
+          src={skillIcon}
+          alt="Image"
+          className="h-10 w-10 rounded-full object-cover"
+        />
+        <p className="text-center text-2xl font-bold text-white">{skillName}</p>
       </div>
     </div>
   );
-}
+};
+export default SkillGauge;

@@ -57,13 +57,13 @@ const LandingPage = () => {
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/shubhamsingh",
+      href: "https://linkedin.com/in/shubham-0q7/",
       label: "LinkedIn",
       color: "hover:text-blue-400 hover:bg-blue-500/10",
     },
     {
       icon: Twitter,
-      href: "https://twitter.com/shubhamsingh",
+      href: "https://wa.me/917050043530?text=Hii%20Shubham%20Singh,%20I%20found%20your%20profile%20on%20your%20platform%20Shubham.dev",
       label: "Twitter",
       color: "hover:text-sky-400 hover:bg-sky-500/10",
     },
