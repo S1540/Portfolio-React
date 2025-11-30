@@ -1,5 +1,13 @@
 import React from "react";
-import { Code, Layers, Sparkles, Zap, Target, TrendingUp } from "lucide-react";
+import {
+  Code,
+  Layers,
+  Sparkles,
+  Zap,
+  Target,
+  TrendingUp,
+  Eye,
+} from "lucide-react";
 import HTML5 from "../../assets/HTML5.png";
 import CSS from "../../assets/CSS.png";
 import TailwindCSS from "../../assets/Tailwind.png";
@@ -17,7 +25,8 @@ import LandingPage from "../LandingPage";
 import SkillGauge from "../Cards/SkillGauge";
 import AnimatedCounter from "../Cards/AnimatedCounter";
 import ServiceCard from "../Cards/ServiceCard";
-import { ProjectUI } from "../Cards/ProjectUI";
+import ProjectUI from "../Cards/ProjectUI";
+import MyntraFullPage from "../../assets/ProjectThumbnail/MyntraFullPage.png";
 
 const HomePage = () => {
   return (
@@ -385,8 +394,69 @@ const HomePage = () => {
             </span>
           </h2>
         </div>
-        <div className="max-w-7xl w-full mx-auto bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 p-8 rounded-lg hover:bg-slate-800/60 ">
-          <ProjectUI />
+        <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 py-8 rounded-lg hover:bg-slate-800/60 transition-all duration-300">
+          <div className="flex items-center justify-center">
+            <ProjectUI image={MyntraFullPage} />
+          </div>
+          <div className="flex flex-col justify-center gap-6">
+            <div className="flex items-center justify-center gap-3">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-L2_hvNjcMysNA1DKWVpUAF5qtyn5wI_jYg&s"
+                alt="Myntra Logo"
+                className="w-14 h-14 object-cover rounded-full ring-2 ring-pink-500/50"
+              />
+              <h3
+                className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+                style={{ color: "#ff3f6c" }}
+              >
+                Myntra Clone
+              </h3>
+            </div>
+
+            <div className="flex gap-4 justify-center items-center py-3 px-6 bg-slate-900/50 rounded-full w-fit mx-auto border border-slate-700/30">
+              <img
+                src={ReactJS}
+                alt="React"
+                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+              />
+              <img
+                src={TailwindCSS}
+                alt="Tailwind"
+                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+              />
+              <img
+                src={NodeJS}
+                alt="Node"
+                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+              />
+              <img
+                src={MongoDB}
+                alt="MongoDB"
+                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+              />
+            </div>
+
+            <p className="text-gray-200 text-base leading-relaxed font-semibold text-center px-4 tracking-wide">
+              Myntra is an Indian e-commerce website that offers a wide range of
+              fashion products, including clothing, footwear, accessories, and
+              lifestyle items. The website is known for its user-friendly
+              interface, extensive product selection, and secure payment
+              options.
+            </p>
+
+            <button className="group relative px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-base sm:text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/40 hover:shadow-blue-600/60 transition-all duration-300 transform hover:scale-105 overflow-hidden mx-auto">
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <Eye className="w-5 h-5" />
+                <a
+                  href="https://cool-lamingto-edc51b.netlify.app/"
+                  target="_blank"
+                >
+                  View Project
+                </a>
+              </span>
+              <div className="absolute inset-0 bg-linear-to-r from-blue-400 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </div>
         </div>
       </section>
     </>
