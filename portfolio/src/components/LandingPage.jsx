@@ -77,28 +77,9 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-[#020718] relative overflow-hidden flex items-center justify-center">
-      {/* Particles Background - Blurred */}
       <div className="absolute inset-0 blur-sm" style={{ zIndex: 1 }}>
-        {/* <ParticlesBackground /> */}
         <SimpleBubbles />
       </div>
-
-      {/* Grid Pattern Background */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          zIndex: 2,
-          backgroundImage: `
-            linear-linear(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-            linear-linear(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: "50px 50px",
-          maskImage:
-            "radial-linear(ellipse at center, black 40%, transparent 80%)",
-          WebkitMaskImage:
-            "radial-linear(ellipse at center, black 40%, transparent 80%)",
-        }}
-      ></div>
 
       {/* linear Overlays */}
       <div

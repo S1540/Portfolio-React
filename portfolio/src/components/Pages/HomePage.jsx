@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   Code,
   Layers,
@@ -6,7 +7,7 @@ import {
   Zap,
   Target,
   TrendingUp,
-  Eye,
+  CornerDownRight,
 } from "lucide-react";
 import HTML5 from "../../assets/HTML5.png";
 import CSS from "../../assets/CSS.png";
@@ -27,28 +28,15 @@ import AnimatedCounter from "../Cards/AnimatedCounter";
 import ServiceCard from "../Cards/ServiceCard";
 import ProjectUI from "../Cards/ProjectUI";
 import MyntraFullPage from "../../assets/ProjectThumbnail/MyntraFullPage.png";
+import ScienFullPage from "../../assets/ProjectThumbnail/SceincFullPage.png";
+import Button from "../Cards/Button";
 
 const HomePage = () => {
   return (
     <>
       <LandingPage />
-      <section className="h-auto bg-[#020718] relative py-14 overflow-hidden">
-        {/* Grid Pattern Background */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `
-            linear-linear(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-            linear-linear(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "50px 50px",
-            maskImage:
-              "radial-linear(ellipse at center, black 40%, transparent 80%)",
-            WebkitMaskImage:
-              "radial-linear(ellipse at center, black 40%, transparent 80%)",
-          }}
-        ></div>
 
+      <section className="h-auto bg-[#020718] relative py-14 overflow-hidden">
         {/* linear Overlays */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -56,9 +44,21 @@ const HomePage = () => {
         </div>
 
         {/* About Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           {/* Section Heading */}
-          <div className="text-center mb-16 sm:mb-20 animate-fadeIn">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16 sm:mb-20"
+          >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
               <span className="text-gray-400 text-sm sm:text-base font-medium uppercase tracking-wider">
@@ -71,12 +71,31 @@ const HomePage = () => {
                 About Me
               </span>
             </h2>
-          </div>
+          </motion.div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          >
             {/* Left Column */}
-            <div className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 px-6 sm:px-8 py-8 sm:py-10 rounded-lg hover:bg-slate-800/60">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.7 }}
+              className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 px-6 sm:px-8 py-8 sm:py-10 rounded-lg hover:bg-slate-800/60"
+            >
               {/* Top linear Line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-t-2xl"></div>
 
@@ -124,10 +143,17 @@ const HomePage = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* Right Column */}
-            <div className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 px-6 sm:px-8 py-8 sm:py-10 rounded-lg hover:bg-slate-800/60">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.7 }}
+              className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 px-6 sm:px-8 py-8 sm:py-10 rounded-lg hover:bg-slate-800/60"
+            >
               {/* Top linear Line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-purple-500 via-pink-500 to-cyan-500 rounded-t-2xl"></div>
 
@@ -188,11 +214,23 @@ const HomePage = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Bottom Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 sm:mt-16 ">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 },
+              },
+            }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 sm:mt-16"
+          >
             {[
               {
                 endValue: 50,
@@ -215,8 +253,13 @@ const HomePage = () => {
                 color: "from-orange-400 to-red-400",
               },
             ].map((stat, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.85 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.6 }}
                 className="text-center p-6 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-lg hover:bg-slate-800/60 hover:border-slate-600 transition-transform duration-200 hover:scale-101"
               >
                 <div
@@ -227,10 +270,10 @@ const HomePage = () => {
                 <div className="text-gray-400 text-xs sm:text-sm">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
       <section className="h-auto bg-[#020718] relative pb-14 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
@@ -254,7 +297,17 @@ const HomePage = () => {
             </h2>
           </div>
           {/* Skills Circles */}
-          <div className="max-w-7xl w-full mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-4 sm:px-6 lg:px-8 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 p-8 rounded-lg hover:bg-slate-800/60">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.85 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            transition={{ duration: 0.6 }}
+            className="max-w-7xl w-full mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-4 sm:px-6 lg:px-8 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 p-8 rounded-lg hover:bg-slate-800/60"
+          >
             <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-purple-500 via-pink-500 to-cyan-500 rounded-t-2xl"></div>
             {[
               {
@@ -312,15 +365,26 @@ const HomePage = () => {
                 skillIcon: GitHub,
               },
             ].map((skill, index) => (
-              <SkillGauge
+              <motion.div
                 key={index}
-                skillName={skill.skillName}
-                skillIcon={skill.skillIcon}
-                skillValue={skill.skillValue}
-                skillColor={skill.skillColor}
-              />
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.85 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+              >
+                <SkillGauge
+                  key={index}
+                  skillName={skill.skillName}
+                  skillIcon={skill.skillIcon}
+                  skillValue={skill.skillValue}
+                  skillColor={skill.skillColor}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* My Services */}
@@ -341,7 +405,17 @@ const HomePage = () => {
             </h2>
           </div>
           {/* Services */}
-          <div className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto gap-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.85 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto gap-4"
+          >
             {[
               {
                 image: Programer,
@@ -368,18 +442,30 @@ const HomePage = () => {
                   "Incorporating AI features to enhance user experience and functionality. ",
               },
             ].map((service, index) => (
-              <ServiceCard
+              <motion.div
                 key={index}
-                image={service.image}
-                heading={service.heading}
-                discription={service.discription}
-              />
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.85 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.6 }}
+              >
+                <ServiceCard
+                  key={index}
+                  image={service.image}
+                  heading={service.heading}
+                  discription={service.discription}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* Project ShowCase */}
-      <section className="min-h-screen bg-[#020718] relative py-14 overflow-hidden text-white">
+      <section className="min-h-screen bg-[#020718] relative py-14 px-4 overflow-hidden text-white">
         <div className="text-center mb-16  animate-fadeIn">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
@@ -394,69 +480,145 @@ const HomePage = () => {
             </span>
           </h2>
         </div>
-        <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 py-8 rounded-lg hover:bg-slate-800/60 transition-all duration-300">
-          <div className="flex items-center justify-center">
-            <ProjectUI image={MyntraFullPage} />
-          </div>
-          <div className="flex flex-col justify-center gap-6">
-            <div className="flex items-center justify-center gap-3">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-L2_hvNjcMysNA1DKWVpUAF5qtyn5wI_jYg&s"
-                alt="Myntra Logo"
-                className="w-14 h-14 object-cover rounded-full ring-2 ring-pink-500/50"
-              />
-              <h3
-                className="text-3xl sm:text-4xl font-extrabold tracking-tight"
-                style={{ color: "#ff3f6c" }}
-              >
-                Myntra Clone
-              </h3>
+        <div className="max-w-7xl w-full mx-auto flex flex-col gap-10 items-center bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 py-8  rounded-lg hover:bg-slate-800/60 transition-all duration-300">
+          <motion.div
+            // key={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.85 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
+            <div className="flex items-center justify-center ">
+              <ProjectUI image={MyntraFullPage} />
             </div>
-
-            <div className="flex gap-4 justify-center items-center py-3 px-6 bg-slate-900/50 rounded-full w-fit mx-auto border border-slate-700/30">
-              <img
-                src={ReactJS}
-                alt="React"
-                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
-              />
-              <img
-                src={TailwindCSS}
-                alt="Tailwind"
-                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
-              />
-              <img
-                src={NodeJS}
-                alt="Node"
-                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
-              />
-              <img
-                src={MongoDB}
-                alt="MongoDB"
-                className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
-              />
-            </div>
-
-            <p className="text-gray-200 text-base leading-relaxed font-semibold text-center px-4 tracking-wide">
-              Myntra is an Indian e-commerce website that offers a wide range of
-              fashion products, including clothing, footwear, accessories, and
-              lifestyle items. The website is known for its user-friendly
-              interface, extensive product selection, and secure payment
-              options.
-            </p>
-
-            <button className="group relative px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-base sm:text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/40 hover:shadow-blue-600/60 transition-all duration-300 transform hover:scale-105 overflow-hidden mx-auto">
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <Eye className="w-5 h-5" />
-                <a
-                  href="https://cool-lamingto-edc51b.netlify.app/"
-                  target="_blank"
+            <div className="flex flex-col justify-center gap-6">
+              <div className="flex items-center justify-center gap-3">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-L2_hvNjcMysNA1DKWVpUAF5qtyn5wI_jYg&s"
+                  alt="Myntra Logo"
+                  className="w-14 h-14 object-cover rounded-full ring-2 ring-pink-500/50"
+                />
+                <h3
+                  className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+                  style={{ color: "#ff3f6c" }}
                 >
-                  View Project
-                </a>
-              </span>
-              <div className="absolute inset-0 bg-linear-to-r from-blue-400 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
-          </div>
+                  Myntra Clone
+                </h3>
+              </div>
+
+              <div className="flex gap-4 justify-center items-center py-3 px-6 bg-slate-900/50 rounded-full w-fit mx-auto border border-slate-700/30">
+                <img
+                  src={ReactJS}
+                  alt="React"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+                <img
+                  src={TailwindCSS}
+                  alt="Tailwind"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+                <img
+                  src={NodeJS}
+                  alt="Node"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+                <img
+                  src={MongoDB}
+                  alt="MongoDB"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+              </div>
+
+              <p className="text-gray-200 text-base leading-relaxed font-semibold text-center px-4 tracking-wide">
+                This project is a fully responsive clone of the Myntra shopping
+                platform built using modern frontend technologies. It includes
+                product listings, category filtering, and a clean UI inspired by
+                the original website. The design focuses on a smooth user
+                experience with optimized layouts for both mobile and desktop. I
+                implemented reusable components, responsive grids, and
+                interactive elements to make the interface feel dynamic. This
+                project helped me strengthen my skills in React, Tailwind CSS,
+                and component-based architecture.
+              </p>
+              <Button link="https://cool-lamingto-edc51b.netlify.app/" />
+            </div>
+          </motion.div>
+          {/* Project 2 */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.85 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-t-slate-700/50 pt-8"
+          >
+            <div className="md:order-2 flex items-center justify-center">
+              <ProjectUI image={ScienFullPage} />
+            </div>
+            <div className="md:order-1 flex flex-col justify-center gap-6">
+              <div className="flex items-center justify-center gap-3">
+                <img
+                  src="https://c8.alamy.com/comp/TCFC7N/creative-palm-holding-beaker-science-logo-design-symbol-illustration-TCFC7N.jpg"
+                  alt="Myntra Logo"
+                  className="w-14 h-14 object-cover rounded-full ring-2 ring-pink-500/50"
+                />
+                <h3
+                  className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+                  style={{ color: "#ff3f6c" }}
+                >
+                  Sceinc Web
+                </h3>
+              </div>
+
+              <div className="flex gap-4 justify-center items-center py-3 px-6 bg-slate-900/50 rounded-full w-fit mx-auto border border-slate-700/30">
+                <img
+                  src={ReactJS}
+                  alt="React"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+                <img
+                  src={TailwindCSS}
+                  alt="Tailwind"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+                <img
+                  src={NodeJS}
+                  alt="Node"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+                <img
+                  src={MongoDB}
+                  alt="MongoDB"
+                  className="w-9 h-9 object-cover hover:scale-110 transition-transform duration-200"
+                />
+              </div>
+
+              <p className="text-gray-200 text-base leading-relaxed font-semibold text-center px-4 tracking-wide">
+                Myntra is an Indian e-commerce website that offers a wide range
+                of fashion products, including clothing, footwear, accessories,
+                and lifestyle items. The website is known for its user-friendly
+                interface, extensive product selection, and secure payment
+                options.
+              </p>
+              <div className="flex justify-center gap-2">
+                <Button link="https://prismatic-gingersnap-2bdf3f.netlify.app/" />
+                <button className="group px-4 sm:px-10 mr-2 md:px-12 py-4 sm:py-4.5 bg-transparent border-2 border-purple-500 hover:bg-purple-500/10 text-purple-400 hover:text-purple-300 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 hover:border-purple-400">
+                  <span className="flex items-center justify-center gap-2">
+                    <CornerDownRight className="w-5 h-5" />
+                    Explore More
+                  </span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>
