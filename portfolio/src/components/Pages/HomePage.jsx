@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Lottie from "lottie-react";
 import {
   Code,
   Layers,
@@ -25,11 +26,13 @@ import AI from "../../assets/AI.png";
 import LandingPage from "../LandingPage";
 import SkillGauge from "../Cards/SkillGauge";
 import AnimatedCounter from "../Cards/AnimatedCounter";
+import animationLottie from "../../assets/email sent.json";
 import ServiceCard from "../Cards/ServiceCard";
 import ProjectUI from "../Cards/ProjectUI";
 import MyntraFullPage from "../../assets/ProjectThumbnail/MyntraFullPage.png";
 import ScienFullPage from "../../assets/ProjectThumbnail/SceincFullPage.png";
 import Button from "../Cards/Button";
+import Tea from "../../assets/Welcome Tea.jpg";
 
 const HomePage = () => {
   return (
@@ -620,6 +623,113 @@ const HomePage = () => {
             </div>
           </motion.div>
         </div>
+      </section>
+      {/* Contact Section */}
+      <section
+        style={{ backgroundImage: `url(${Tea})` }}
+        className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed relative pb-14  overflow-hidden text-white "
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        {/* Form Container */}
+        <div className="bg-[#020718] relative z-10 w-full max-w-full px-4 ">
+          <div className="text-center mb-16  animate-fadeIn">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+              <span className="text-gray-400 text-sm sm:text-base font-medium uppercase tracking-wider">
+                24/7 Reachable
+              </span>
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 animate-pulse" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Contact Me
+              </span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-900/50 border-slate-700/30 backdrop-blur-md rounded-lg px-2 py-8 shadow-2xl border hover:border-slate-600 transition-all duration-300 ease-in-out relative">
+            {/* linier effect */}
+            <div className="absolute top-1/2 left-1/4 bg-linear-to-l from-purple-500/30 to-cyan-400/30 h-64 w-44 blur-2xl animate-pulse"></div>
+            <div className="absolute top-20 left-1/5 bg-linear-to-l from-purple-500/50 to-cyan-400/50 h-64 w-44 blur-2xl animate-pulse"></div>
+
+            <form className="order-2 sm:order-1 max-w-md w-full mx-auto h-full bg-slate-900/50 border-slate-700/30 backdrop-blur-md rounded-lg p-8 shadow-2xl border hover:border-slate-600 transition-all duration-300 ease-in-out">
+              <h2 className="text-3xl font-bold text-center mb-8 bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Get In Touch
+              </h2>
+
+              <div className="space-y-6">
+                {/* Name Field */}
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-semibold tracking-wide"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    className="bg-slate-700/30 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none 
+        focus:border-0
+        focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ease-in-out"
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-semibold tracking-wide"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    className="bg-slate-700/30 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 ease-in-out"
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-semibold tracking-wide"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    placeholder="Your message..."
+                    rows="4"
+                    className="bg-slate-700/30 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all resize-none"
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-white text-gray-900 font-bold py-3 rounded-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+
+            {/* second col */}
+            <div className="order-1 sm:order-2 flex items-center justify-center h-full">
+              <Lottie
+                animationData={animationLottie}
+                loop={true}
+                style={{ width: "100%", height: "100%", maxHeight: "600px" }}
+              />
+            </div>
+          </div>
+        </div>
+        {/*  */}
+        <div className="max-w-full w-full h-72 flex-none"></div>
       </section>
     </>
   );
