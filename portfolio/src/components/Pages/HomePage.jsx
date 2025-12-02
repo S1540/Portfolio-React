@@ -33,6 +33,7 @@ import MyntraFullPage from "../../assets/ProjectThumbnail/MyntraFullPage.png";
 import ScienFullPage from "../../assets/ProjectThumbnail/SceincFullPage.png";
 import Button from "../Cards/Button";
 import Tea from "../../assets/Welcome Tea.jpg";
+import Footer from "../Footer";
 
 const HomePage = () => {
   return (
@@ -548,7 +549,10 @@ const HomePage = () => {
                 project helped me strengthen my skills in React, Tailwind CSS,
                 and component-based architecture.
               </p>
-              <Button link="https://cool-lamingto-edc51b.netlify.app/" />
+              <Button
+                name="View Project"
+                link="https://cool-lamingto-edc51b.netlify.app/"
+              />
             </div>
           </motion.div>
           {/* Project 2 */}
@@ -612,7 +616,10 @@ const HomePage = () => {
                 options.
               </p>
               <div className="flex justify-center gap-2">
-                <Button link="https://prismatic-gingersnap-2bdf3f.netlify.app/" />
+                <Button
+                  name="View Project"
+                  link="https://prismatic-gingersnap-2bdf3f.netlify.app/"
+                />
                 <button className="group px-4 sm:px-10 mr-2 md:px-12 py-4 sm:py-4.5 bg-transparent border-2 border-purple-500 hover:bg-purple-500/10 text-purple-400 hover:text-purple-300 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 hover:border-purple-400">
                   <span className="flex items-center justify-center gap-2">
                     <CornerDownRight className="w-5 h-5" />
@@ -625,10 +632,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* Contact Section */}
-      <section
-        style={{ backgroundImage: `url(${Tea})` }}
-        className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed relative pb-14  overflow-hidden text-white "
-      >
+      <section className="h-auto bg-cover bg-center bg-no-repeat bg-fixed relative pb-14  overflow-hidden text-white ">
         <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Form Container */}
@@ -647,7 +651,16 @@ const HomePage = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-900/50 border-slate-700/30 backdrop-blur-md rounded-lg px-2 py-8 shadow-2xl border hover:border-slate-600 transition-all duration-300 ease-in-out relative">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.85 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-900/50 border-slate-700/30 backdrop-blur-md rounded-lg px-2 py-8 shadow-2xl border hover:border-slate-600 transition-all duration-300 ease-in-out relative"
+          >
             {/* linier effect */}
             <div className="absolute top-1/2 left-1/4 bg-linear-to-l from-purple-500/30 to-cyan-400/30 h-64 w-44 blur-2xl animate-pulse"></div>
             <div className="absolute top-20 left-1/5 bg-linear-to-l from-purple-500/50 to-cyan-400/50 h-64 w-44 blur-2xl animate-pulse"></div>
@@ -726,10 +739,29 @@ const HomePage = () => {
                 style={{ width: "100%", height: "100%", maxHeight: "600px" }}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
-        {/*  */}
-        <div className="max-w-full w-full h-72 flex-none"></div>
+      </section>
+      {/* footer */}
+      <section
+        style={{ backgroundImage: `url(${Tea})` }}
+        className="min-h-screen max-w-full w-full bg-fixed bg-no-repeat bg-center bg-cover"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, scale: 0.85 },
+            visible: { opacity: 1, scale: 1 },
+          }}
+          className="flex items-center justify-center h-full py-20"
+        >
+          <Button name={"Hire Me"} />
+        </motion.div>
+        <div className="flex items-center justify-center pt-20">
+          <Footer />
+        </div>
       </section>
     </>
   );
