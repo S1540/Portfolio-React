@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import {
   Code,
@@ -620,12 +621,14 @@ const HomePage = () => {
                   name="View Project"
                   link="https://prismatic-gingersnap-2bdf3f.netlify.app/"
                 />
-                <button className="group px-4 sm:px-10 mr-2 md:px-12 py-4 sm:py-4.5 bg-transparent border-2 border-purple-500 hover:bg-purple-500/10 text-purple-400 hover:text-purple-300 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 hover:border-purple-400">
-                  <span className="flex items-center justify-center gap-2">
-                    <CornerDownRight className="w-5 h-5" />
-                    Explore More
-                  </span>
-                </button>
+                <Link to="/project">
+                  <button className="group px-4 sm:px-10 mr-2 md:px-12 py-4 sm:py-4.5 bg-transparent border-2 border-purple-500 hover:bg-purple-500/10 text-purple-400 hover:text-purple-300 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 hover:border-purple-400">
+                    <span className="flex items-center justify-center gap-2">
+                      <CornerDownRight className="w-5 h-5" />
+                      Explore More
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>
