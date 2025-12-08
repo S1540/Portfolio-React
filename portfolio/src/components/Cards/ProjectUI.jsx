@@ -5,7 +5,6 @@ import LaptopFrame from "../../assets/ProjectThumbnail/Laptop-Frame.png";
 const ProjectUI = ({ image }) => {
   return (
     <div className="relative w-full max-w-[550px] mx-auto">
-      {/* Laptop Frame */}
       <img
         src={LaptopFrame}
         alt="Laptop Frame"
